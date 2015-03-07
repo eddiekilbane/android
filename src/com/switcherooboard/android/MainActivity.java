@@ -1,4 +1,4 @@
-package com.dangerousthings.switcheroo;
+package com.switcherooboard.android;
 
 import android.app.Activity;
 import android.os.Bundle;
