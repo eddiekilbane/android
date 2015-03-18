@@ -10,7 +10,7 @@ apply plugin: 'android'
 
 android {
     compileSdkVersion 'android-18'
-    buildToolsVersion '21.1.2'
+    buildToolsVersion '22'
 
     buildTypes {
         release {
