@@ -12,6 +12,10 @@ android {
     compileSdkVersion 'android-18'
     buildToolsVersion '22'
 
+    defaultConfig {
+        minSdkVersion '18'
+    }
+
     buildTypes {
         release {
             runProguard false
