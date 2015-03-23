@@ -14,6 +14,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="ControlActivity" />
+        <activity android:name="ControlActivity" android:parentActivityName="ScanActivity" />
     </application>
 </manifest>

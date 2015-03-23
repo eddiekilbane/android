@@ -34,6 +34,8 @@ public class ControlActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.control);
 
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         mBluetoothDevice = getIntent().getParcelableExtra("com.switcherooboard.android.BLUETOOTHDEVICE");
     }
 
