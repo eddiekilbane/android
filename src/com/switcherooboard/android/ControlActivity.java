@@ -8,6 +8,8 @@ import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothProfile;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 
 import java.util.concurrent.Semaphore;
@@ -37,6 +39,13 @@ public class ControlActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         mBluetoothDevice = getIntent().getParcelableExtra("com.switcherooboard.android.BLUETOOTHDEVICE");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.control_menu, menu);
+        return true;
     }
 
     @Override
