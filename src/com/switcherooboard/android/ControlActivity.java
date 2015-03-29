@@ -38,7 +38,7 @@ public class ControlActivity extends Activity {
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mBluetoothDevice = getIntent().getParcelableExtra("com.switcherooboard.android.BLUETOOTHDEVICE");
+        mBluetoothDevice = getIntent().getParcelableExtra(ScanActivity.EXTRA_DEVICE);
     }
 
     @Override
