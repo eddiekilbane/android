@@ -42,6 +42,7 @@ android {
         main.manifest.srcFile 'AndroidManifest.xml'
         main.java.srcDir 'src'
         main.res.srcDir 'res'
+        androidTest.java.srcDir 'tests/src'
     }
 
     packagingOptions {
