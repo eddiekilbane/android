@@ -17,6 +17,9 @@ repositories {
 dependencies {
     androidTestCompile group: 'com.android.support.test', name: 'testing-support-lib', version: '0.1'
     androidTestCompile group: 'com.android.support.test.espresso', name: 'espresso-core', version: '2.0'
+    androidTestCompile group: 'com.google.dexmaker', name: 'dexmaker', version: '1.2'
+    androidTestCompile group: 'com.google.dexmaker', name: 'dexmaker-mockito', version: '1.2'
+    androidTestCompile group: 'org.mockito', name: 'mockito-core', version: '1.9.5'
 }
 
 android {
