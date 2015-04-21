@@ -16,7 +16,7 @@ public class ScanActivity extends Activity implements BluetoothAdapter.LeScanCal
 
     private static final String TAG = "Switcheroo.ScanActivity";
 
-    public static final String EXTRA_DEVICE = "com.switcherooboard.android.extra.DEVICE";
+    public static final String EXTRA_SWITCHEROO = "com.switcherooboard.android.extra.SWITCHEROO";
 
     BluetoothManager mBluetoothManager;
     BluetoothAdapter mBluetoothAdapter;
@@ -43,7 +43,10 @@ public class ScanActivity extends Activity implements BluetoothAdapter.LeScanCal
         mGridView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ScanActivity.this, ControlActivity.class);
-                intent.putExtra(ScanActivity.EXTRA_DEVICE, (BluetoothDevice) parent.getAdapter().getItem(position));
+
+                final BluetoothDevice device = (BluetoothDevice) parent.getAdapter().getItem(position);
+                intent.putExtra(ScanActivity.EXTRA_SWITCHEROO, new GattSwitcheroo(device.getAddress()));
+
                 startActivity(intent);
             }
         });
