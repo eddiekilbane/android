@@ -6,9 +6,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 
-public class ControlActivity extends Activity implements ISwitcherooCallback {
+public class MainActivity extends Activity implements ISwitcherooCallback {
 
-    private static final String TAG = "ControlActivity";
+    private static final String TAG = "MainActivity";
 
     private ISwitcheroo mSwitcheroo;
 
@@ -39,7 +39,7 @@ public class ControlActivity extends Activity implements ISwitcherooCallback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.control);
+        this.setContentView(R.layout.main);
 
         this.getActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -50,7 +50,7 @@ public class ControlActivity extends Activity implements ISwitcherooCallback {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         final MenuInflater inflater = this.getMenuInflater();
-        inflater.inflate(R.menu.control_menu, menu);
+        inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 

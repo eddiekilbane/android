@@ -42,7 +42,7 @@ public class ScanActivity extends Activity implements BluetoothAdapter.LeScanCal
 
         mGridView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(ScanActivity.this, ControlActivity.class);
+                Intent intent = new Intent(ScanActivity.this, MainActivity.class);
 
                 final BluetoothDevice device = (BluetoothDevice) parent.getAdapter().getItem(position);
                 intent.putExtra(ScanActivity.EXTRA_SWITCHEROO, new GattSwitcheroo(device.getAddress()));
