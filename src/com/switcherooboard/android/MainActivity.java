@@ -2,8 +2,6 @@ package com.switcherooboard.android;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 
 public class MainActivity extends Activity implements ISwitcherooCallback {
@@ -11,28 +9,6 @@ public class MainActivity extends Activity implements ISwitcherooCallback {
     private static final String TAG = "MainActivity";
 
     private ISwitcheroo mSwitcheroo;
-
-    public void onSwitchClick(View view) {
-        SwitchButton button = (SwitchButton) view;
-
-        final Integer index;
-
-        if (button.getId() == R.id.switch_1) {
-            index = 0;
-        } else if (button.getId() == R.id.switch_2) {
-            index = 1;
-        } else if (button.getId() == R.id.switch_3) {
-            index = 2;
-        } else if (button.getId() == R.id.switch_4) {
-            index = 3;
-        } else {
-            throw new NullPointerException();
-        }
-
-        final boolean state = button.isChecked();
-
-        this.mSwitcheroo.flipRelay(index, state, null);
-    }
 
     /* Activity */
 
@@ -45,13 +21,6 @@ public class MainActivity extends Activity implements ISwitcherooCallback {
 
         this.mSwitcheroo = this.getIntent().getParcelableExtra(ScanActivity.EXTRA_SWITCHEROO);
         this.mSwitcheroo.connect(this);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        final MenuInflater inflater = this.getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return true;
     }
 
     @Override
@@ -70,6 +39,12 @@ public class MainActivity extends Activity implements ISwitcherooCallback {
 
     public void onSwitcherooDisconnected() {
         this.finish();
+    }
+
+    /* */
+
+    protected boolean flipRelay(final int index, final boolean state, final Integer duration) {
+        return this.mSwitcheroo.flipRelay(index, state, duration);
     }
 
 }
