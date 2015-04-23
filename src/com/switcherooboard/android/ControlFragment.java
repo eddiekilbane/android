@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -23,6 +24,22 @@ public class ControlFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.control_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.settings: {
+                this.getFragmentManager().beginTransaction()
+                    .add(android.R.id.content, new SettingsFragment())
+                    .addToBackStack(null).commit();
+                return true;
+            }
+
+            default: {
+                return false;
+            }
+        }
     }
 
     @Override
