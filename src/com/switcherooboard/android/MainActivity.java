@@ -15,7 +15,10 @@ public class MainActivity extends Activity implements ISwitcherooCallback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.main);
+
+        this.getFragmentManager().beginTransaction()
+            .add(android.R.id.content, new ProgressFragment())
+            .commit();
 
         this.getActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -35,6 +38,9 @@ public class MainActivity extends Activity implements ISwitcherooCallback {
     /* ISwitcherooCallback */
 
     public void onSwitcherooConnected() {
+        this.getFragmentManager().beginTransaction()
+            .replace(android.R.id.content, new ControlFragment())
+            .commit();
     }
 
     public void onSwitcherooDisconnected() {
