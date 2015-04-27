@@ -4,13 +4,15 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class MainActivity extends Activity {
 
     private static final String TAG = "MainActivity";
 
     private SwitcherooFragment mSwitcherooFragment;
 
-    private boolean mLinkLost;
+    private AtomicBoolean mDisconnected = new AtomicBoolean();
 
     /* Activity */
 
@@ -39,7 +41,16 @@ public class MainActivity extends Activity {
     public void onPause() {
         super.onPause();
 
-        if (this.isFinishing() && !this.mLinkLost) {
+        if (this.isFinishing() && this.mDisconnected.compareAndSet(false, true)) {
+            this.mSwitcherooFragment.disconnect();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        if (this.isFinishing() && this.mDisconnected.compareAndSet(false, true)) {
             this.mSwitcherooFragment.disconnect();
         }
     }
@@ -53,8 +64,7 @@ public class MainActivity extends Activity {
     }
 
     protected void onSwitcherooDisconnected() {
-        if (!this.isFinishing()) {
-            this.mLinkLost = true;
+        if (this.mDisconnected.compareAndSet(false, true)) {
             this.finish();
         }
     }
