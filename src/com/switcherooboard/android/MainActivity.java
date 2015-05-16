@@ -71,6 +71,10 @@ public class MainActivity extends Activity {
 
     /* */
 
+    protected String getAddress() {
+      return this.mSwitcherooFragment.getAddress();
+    }
+
     protected boolean flipRelay(final int index, final boolean state, final Integer duration) {
         return this.mSwitcherooFragment.flipRelay(index, state, duration);
     }

@@ -27,6 +27,11 @@ class GattSwitcheroo implements ISwitcheroo {
     /* ISwitcheroo */
 
     @Override
+    public String getAddress() {
+      return this.mAddress;
+    }
+
+    @Override
     public synchronized void connect(final ISwitcherooCallback callback) {
         if (this.mState != BluetoothProfile.STATE_DISCONNECTED) {
             throw new IllegalStateException();

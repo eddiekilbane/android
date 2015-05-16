@@ -32,6 +32,10 @@ public class SwitcherooFragment extends Fragment implements ISwitcherooCallback 
 
     /* */
 
+    protected String getAddress() {
+      return this.mSwitcheroo.getAddress();
+    }
+
     protected boolean flipRelay(final int index, final boolean state, final Integer duration) {
         return this.mSwitcheroo.flipRelay(index, state, duration);
     }
