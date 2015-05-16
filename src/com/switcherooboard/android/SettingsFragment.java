@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,6 +23,10 @@ public class SettingsFragment extends PreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setHasOptionsMenu(true);
+
+        PreferenceManager manager = this.getPreferenceManager();
+        String address = ((MainActivity) this.getActivity()).getAddress();
+        manager.setSharedPreferencesName(manager.getSharedPreferencesName() + "." + address);
 
         this.addPreferencesFromResource(R.xml.settings);
 
