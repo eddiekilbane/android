@@ -14,7 +14,7 @@
             android:key="output_0_emit_preference"
             android:title="Pulse"
             />
-        <EditTextPreference
+        <com.switcherooboard.android.DurationPreference
             android:dependency="output_0_emit_preference"
             android:key="output_0_duration_preference"
             android:title="Duration"
@@ -28,7 +28,7 @@
             android:key="output_1_emit_preference"
             android:title="Pulse"
             />
-        <EditTextPreference
+        <com.switcherooboard.android.DurationPreference
             android:dependency="output_1_emit_preference"
             android:key="output_1_duration_preference"
             android:title="Duration"
@@ -42,7 +42,7 @@
             android:key="output_2_emit_preference"
             android:title="Pulse"
             />
-        <EditTextPreference
+        <com.switcherooboard.android.DurationPreference
             android:dependency="output_2_emit_preference"
             android:key="output_2_duration_preference"
             android:title="Duration"
@@ -56,7 +56,7 @@
             android:key="output_3_emit_preference"
             android:title="Pulse"
             />
-        <EditTextPreference
+        <com.switcherooboard.android.DurationPreference
             android:dependency="output_3_emit_preference"
             android:key="output_3_duration_preference"
             android:title="Duration"
