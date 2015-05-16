@@ -3,7 +3,6 @@ package com.switcherooboard.android;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +17,6 @@ public class ScanActivity extends Activity implements BluetoothAdapter.LeScanCal
 
     public static final String EXTRA_SWITCHEROO = "com.switcherooboard.android.extra.SWITCHEROO";
 
-    BluetoothManager mBluetoothManager;
     BluetoothAdapter mBluetoothAdapter;
 
     GridView mGridView;
@@ -28,8 +26,7 @@ public class ScanActivity extends Activity implements BluetoothAdapter.LeScanCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.scan);
 
-        mBluetoothManager = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
-        mBluetoothAdapter = mBluetoothManager.getAdapter();
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
     }
 
     @Override
